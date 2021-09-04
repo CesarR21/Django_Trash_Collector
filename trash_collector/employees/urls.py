@@ -6,5 +6,11 @@ from . import views
 
 app_name = "employees"
 urlpatterns = [
-    path('', views.index, name="index")
+    path('', views.index, name="index"),
+    path('new/', views.create, name="create"),
+    path('delete/<int:employees_id>', views.delete, name='delete'),
+    path('<int:employees_id>', views.detail, name="detail"),
+    path('edit/<int:employees_id>', views.edit, name='edit'),
+    path('employees/<employee>', views.EmployeesListView.as_view(), name="employees")
+
 ]
